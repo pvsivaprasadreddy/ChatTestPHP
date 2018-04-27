@@ -1,1 +1,1 @@
-<?php header( 'Location: /TestChatPHP/index.html' ) ;  ?>
+<?php header( 'Location: /PHPChatApp/index.php' ) ;  ?>
