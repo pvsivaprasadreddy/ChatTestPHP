@@ -1,4 +1,7 @@
 <?php
+//for postman testing
+//call url as http://localhost/SocketSample/PHPFiles/SocketDetails.php?userRequest=SocketServerDetails
+
 // require_once("SocketDetails.php");
 // $ipaddress = "";
 // $ipport = 8081;
@@ -19,8 +22,58 @@ class SocketServerDetails
 {
     function sendSocketServerDetails()
     {
-        $ipaddress = "127:0:0:1";
-        $ipport = 8081;
+        $ipaddress = "192.168.1.16";//"127:0:0:1";
+        $ipport = 3333;
+
+        /*
+        $ipaddress = "192.168.1.16";//"127:0:0:1";
+        $ipport = 3333;
+        */
+
+        /*
+        $ipname = gethostname();
+        echo $ipname;
+        $ipaddress = gethostbyname($ipname);
+        $ipport = $_SERVER['SERVER_PORT'];
+        */
+        
+        /*
+        $ipaddress = $_SERVER['SERVER_ADDR'];//"192.168.1.16";//"127:0:0:1";
+        $ipport = $_SERVER['SERVER_PORT'];//3333;
+        */
+
+        /*
+        $ipaddress = $_SERVER['LOCAL_ADDR'];//"192.168.1.16";//"127:0:0:1";
+        $ipport = $_SERVER['SERVER_PORT'];//3333;
+        */
+
+        /*
+        $ipaddress = exec('curl http://ipecho.net/plain; echo');
+        $ipport = $_SERVER['SERVER_PORT'];//3333;
+        */
+
+        /*
+        //The previous answers all give $_SERVER['SERVER_ADDR']. This will not work on some IIS installations. 
+        //If you want this to work on IIS, then use the following:
+        $ipaddress = gethostbyname($_SERVER['SERVER_NAME']);//"192.168.1.16";//"127:0:0:1";
+        $ipport = $_SERVER['SERVER_PORT'];//3333;
+        */
+
+        /*
+        //If you are using PHP in bash shell you can use:
+        $ipname = $server_name=exec('hostname');
+        echo $ipname;
+        $ipaddress = $_SERVER['LOCAL_ADDR'];//"192.168.1.16";//"127:0:0:1";
+        $ipport = $_SERVER['SERVER_PORT'];//3333;
+        */
+
+        /*
+        //does not work on windows machine
+        $ipaddress = exec("ifconfig | grep -Eo 'inet (addr:)?([0-9]*\.){3}[0-9]*' | grep -Eo '([0-9]*\.){3}[0-9]*' | grep -v '127.0.0.1'");
+        $ipport = $_SERVER['SERVER_PORT'];
+        */
+
+        //Port number can be any positive integer between 1024 -65535. or different based on the sever we are using
         // $server_data="{ \"ip_address:\" ". "\"" .$ipaddress . "\"" . " \"ip_Port :\" ". "\"" . $ipport . "\"" ."}";
         // $server_data="{ \"ip_address\" : \"" . $ipaddress . "\" ," . " \"ip_Port\" : \"" . $ipport . "\" }";
         $server_data= array("ip_address" => $ipaddress ,"ip_port" => $ipport);
@@ -86,8 +139,8 @@ if($userRequest === "SocketServerDetails")
 }
 else
 {
-    $SocketServerDetailsClass = new SocketServerDetails();
-    echo $SocketServerDetailsClass->getSocketServerDetails();
+    //$SocketServerDetailsClass = new SocketServerDetails();
+    //echo $SocketServerDetailsClass->getSocketServerDetails();
 }
 
 // function encodeJson($responseData) {
