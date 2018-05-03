@@ -6,7 +6,7 @@ $serverDetailsResponse = json_decode($socketServer->getSocketServerDetails(), tr
 $host = $serverDetailsResponse['server_details']['ip_address'];
 $port = $serverDetailsResponse['server_details']['ip_port'];
 //Setting time out to 0 so it never time outs or stops
-set_time_limit(30);
+set_time_limit(0);
 
 //create socket
 $socket = socket_create(AF_INET, SOCK_STREAM, 0) or die("Could not create socket\n");
