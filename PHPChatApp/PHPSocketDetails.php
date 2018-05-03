@@ -22,8 +22,13 @@ class SocketServerDetails
 {
     function sendSocketServerDetails()
     {
-        $ipaddress = "172.18.62.206";//"192.168.1.16";//"127:0:0:1";
-        $ipport = 443;//3333;
+	$ipname = gethostname();
+        //echo $ipname;
+        $ipaddress = gethostbyname($ipname);
+        $ipport = $_SERVER['SERVER_PORT'];
+	    
+        //$ipaddress = "172.18.62.206";//"192.168.1.16";//"127:0:0:1";
+        //$ipport = 443;//3333;
 
         /*
         $ipaddress = "192.168.1.16";//"127:0:0:1";
